@@ -8,7 +8,8 @@ import lombok.Setter;
 import java.math.BigDecimal;
 import java.util.List;
 
-@Entity
+@Entity(name = "orders")
+@Table(name = "orders")
 @Getter
 @Setter
 @EqualsAndHashCode(of = "id")

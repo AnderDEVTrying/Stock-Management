@@ -2,16 +2,15 @@ package com.StockManagement.Domain;
 
 import com.StockManagement.DTO.Product_RequestDTO;
 import jakarta.persistence.*;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
-import java.lang.ref.Reference;
 import java.math.BigDecimal;
 @Entity
 @Getter
 @Setter
 @EqualsAndHashCode(of = "id")
+@AllArgsConstructor
+@NoArgsConstructor
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,6 +25,6 @@ public class Product {
     public Product(Product_RequestDTO requestDTO){
         this.name = requestDTO.name();
         this.price = requestDTO.price();
-        this.stock_quantity = requestDTO.stock_qntty();
+        this.stock_quantity = requestDTO.stock_quantity();
     }
 }
