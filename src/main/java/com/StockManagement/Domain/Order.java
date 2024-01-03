@@ -5,6 +5,7 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @Entity
@@ -21,6 +22,6 @@ public class Order {
     @JoinColumn(name = "Product_id")
     private List<Product> product;
     private Integer order_quantity;
-
+    private BigDecimal total_price;
 
 }
