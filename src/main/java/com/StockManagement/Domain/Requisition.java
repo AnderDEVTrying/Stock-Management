@@ -8,17 +8,16 @@ import lombok.Setter;
 import java.math.BigDecimal;
 import java.util.List;
 
-@Entity(name = "orders")
-@Table(name = "orders")
+@Entity(name = "requisitions")
+@Table(name = "requisitions")
 @Getter
 @Setter
 @EqualsAndHashCode(of = "id")
-public class Order {
+public class Requisition {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @ManyToOne
-    private User user;
+    private String name;
     @OneToMany
     @JoinColumn(name = "Product_id")
     private List<Product> product;
