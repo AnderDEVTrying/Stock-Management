@@ -27,12 +27,10 @@ public class Product_Controller {
         productRepository.save(product);
         return data;
     }
-
     @GetMapping
     public List<Product_ResponseDTO> getProducts() {
-        List<Product_ResponseDTO> productList = productRepository.findAll().stream().
+        return productRepository.findAll().stream().
                 map(Product_ResponseDTO::new).toList();
-        return productList;
     }
 
     @PutMapping
