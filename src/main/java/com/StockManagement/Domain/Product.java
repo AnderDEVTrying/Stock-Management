@@ -12,6 +12,9 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Product {
+    /**
+     * Represents a product in the stock management
+     */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -21,6 +24,11 @@ public class Product {
     private Integer stock_quantity;
     @Enumerated(EnumType.STRING)
     private Availability availability;
+
+    /**
+     * Creates a product based on the DTO information
+     * @param requestDTO DTO with the necessary information to create a Product
+     */
 
     public Product(Product_RequestDTO requestDTO){
         this.name = requestDTO.name();

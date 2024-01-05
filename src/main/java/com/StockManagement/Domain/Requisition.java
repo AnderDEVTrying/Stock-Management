@@ -15,6 +15,10 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Requisition {
+    /**
+     * Represents the orders place by the user
+     * Gets data of the ordered product from the Product Database
+     */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -23,6 +27,12 @@ public class Requisition {
     private Product product;
     private Integer requisition_quantity;
     private BigDecimal total_price;
+
+    /**
+     * Creates a Requisition(or Order) based on the DTO information
+     * @param data DTO with the necessary information to create a Requisition
+     * @param services Necessary services to search for the product based on the name
+     */
 
     public Requisition(Requisition_RequestDTO data, Product_Services services) {
         this.name = data.name();
