@@ -29,10 +29,15 @@ public class Requisition_Services {
 
     public void reduceQuantityBasedOnOrder(Requisition requisition) {
         Product product = requisition.getProduct();
-        int reduce = requisition.getRequisition_quantity() - product.getStock_quantity();
-        product.setStock_quantity(reduce);
-        productServices.setProductAvailabilty(product);
-        productRepository.save(product);
+        int requestedQuantity = requisition.getRequisition_quantity();
+        int availableQuantity = product.getStock_quantity();
 
+        if (requestedQuantity <= availableQuantity) {
+            int newQuantity = availableQuantity - requestedQuantity;
+            product.setStock_quantity(newQuantity);
+            productServices.setProductAvailabilty(product);
+            productRepository.save(product);
+        }
     }
+
 }
